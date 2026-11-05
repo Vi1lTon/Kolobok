@@ -1,16 +1,14 @@
-# This is a sample Python script.
+filename = "demo.txt"
+lines = ["Первая строка", "Вторая строка", "Третья строка"]
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+with open(filename, "w", encoding="utf-8") as f:
+    for line in lines:
+        f.write(line + "\n")
 
+with open(filename, encoding="utf-8") as f:
+    read_lines = [line.rstrip("\n") for line in f]
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+for i, line in enumerate(read_lines, 1):
+    print(i, line)
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print("Всего строк:", len(read_lines))
